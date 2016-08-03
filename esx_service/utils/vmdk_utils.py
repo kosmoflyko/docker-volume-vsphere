@@ -135,11 +135,8 @@ def vmdk_is_a_descriptor(path, file_name):
     name = file_name.lower()
 
     # filter out all files with wrong extention
-    if not name.endswith('.vmdk'):
-        return False
-
-    # filter out -delta, -flat, -digest and -ctk VMDK files
-    if re.match(SPECIAL_FILES_REGEXP, name):
+    # also filter out -delta, -flat, -digest and -ctk VMDK files
+    if not name.endswith('.vmdk') or re.match(SPECIAL_FILES_REGEXP, name):
         return False
 
     # Check the size. It's a cheap(ish) way to check for descriptor, 
