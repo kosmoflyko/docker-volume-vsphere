@@ -352,15 +352,6 @@ def ls_dash_c(columns):
     return (headers, rows)
 
 
-def format_header_as_arg(header):
-    """
-    Take a header formatted as words separated by spaces starting with
-    capitals and convert it to a cli argument friendly format that is all
-    lowercase with words separated by dashes. i.e. 'Created By' -> 'created-by'
-    """
-    return '-'.join(header.lower().split())
-
-
 def all_ls_headers():
     """ Return a list of all header for ls -l """
     return ['Volume', 'Datastore', 'Created By VM', 'Created',
